@@ -20,9 +20,10 @@
 		<br/><br/>
 		<h:outputText value="#{inversaoNomeBean.nomeMaiusculo}" id="nomeMaiusculo" />
 		<br/><br/>
-		
+		<h:outputText value="#{inversaoNomeBean.nomeMinusculo}" id="nomeMinusculo" />
+		<br/><br/>
 		<p:commandButton value="Inverter" action="#{inversaoNomeBean.inverter}"
-			update="nomeInvertido nomeMaiusculo" />
+			update="frm:nomeInvertido frm:nomeMaiusculo frm:nomeMinusculo" />
 	</h:form>
 
 </h:body>

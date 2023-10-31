@@ -14,6 +14,7 @@ public class InversaoNomeBean implements Serializable {
 	private String nome;
 	private String nomeInvertido;
 	private String nomeMaiusculo;
+	private String nomeMinusculo;
 	private int quantidadePalavras;
 
 	public void maiusculo() {
@@ -21,12 +22,18 @@ public class InversaoNomeBean implements Serializable {
 		this.nomeMaiusculo = getNome().toUpperCase();
 		System.out.println("Nome em caixa alta: " + this.nomeMaiusculo);
 	}
+	
+	public void nomeMinusculo() {
+		this.nomeMinusculo = "";
+		this.nomeMinusculo = getNome().toLowerCase();
+		System.out.println("Nome em caixa baixa: " + this.nomeMinusculo);
+	}
 
 	public void inverter() {
 		this.nomeInvertido = "";
 		this.quantidadePalavras = 0;
 
-		if (this.nome != null && !this.nome.isEmpty()) {
+		if (this.nome != null && !this.nome.isEmpty()) { 
 			this.quantidadePalavras = 1;
 		}
 
@@ -39,6 +46,7 @@ public class InversaoNomeBean implements Serializable {
 			}
 		}
 		this.maiusculo();
+		this.nomeMinusculo();
 		System.out.println("Nome invertido: " + this.nomeInvertido);
 	}
 
@@ -52,6 +60,10 @@ public class InversaoNomeBean implements Serializable {
 
 	public String getNomeInvertido() {
 		return nomeInvertido;
+	}
+
+	public String getNomeMinusculo() {
+		return nomeMinusculo;
 	}
 
 	public int getQuantidadePalavras() {
