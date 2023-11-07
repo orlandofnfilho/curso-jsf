@@ -13,6 +13,15 @@
 </h:head>
 
 <h:body>
+
+<p:ajaxStatus styleClass="ajax-status">
+	<f:facet name="start">
+		<h:graphicImage library="images" name="loading.gif"/>
+	</f:facet>
+	<f:facet name="complete">
+		<h:outputText value=""/>
+	</f:facet>
+</p:ajaxStatus>
 	<header>
 	<div>
 		<h:link>
@@ -20,16 +29,14 @@
 		</h:link>
 	</div>
 	</header>
+	<div id="conteudo">
+		<ui:insert name="corpo" />
+	</div>
+
+	<p:separator style="margin-top: 20px" />
+
+	<footer> Curso Online de Sistemas Comerciais Java EE com CDI,
+	JPA e PrimeFaces - <a href="http://bit.ly/Y8saFl" target="_blank">www.algaworks.com</a>
+	</footer>
 </h:body>
-
-<div id="conteudo">
-	<ui:insert name="corpo" />
-</div>
-
-<p:separator style="margin-top: 20px" />
-
-<footer> Curso Online de Sistemas Comerciais Java EE com CDI,
-JPA e PrimeFaces - <a href="http://bit.ly/Y8saFl" target="_blank">www.algaworks.com</a>
-</footer>
-
 </html>
