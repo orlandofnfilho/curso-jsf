@@ -13,30 +13,53 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
 </h:head>
 
-<h:body>
+	<h:body>
+		<p:ajaxStatus styleClass="ajax-status" onsuccess="configurarMoeda()">
+			<f:facet name="start">
+				<h:graphicImage library="images" name="loading.gif"/>
+			</f:facet>
+			<f:facet name="complete">
+				<h:outputText value=""/>
+			</f:facet>
+		</p:ajaxStatus>
+	
+		<header>
+			<div style="float: left">
+				<h:link outcome="/Home">
+					<h:graphicImage library="images" name="logo-algaworks.png" />
+				</h:link>
+			</div>
+			
+			<div style="float: right; margin-right: 110px">
+				<span style="float: left; height: 30px; line-height: 30px; margin-right: 60px">
+				Olá usuário!
+				</span>
+				
+				<h:form style="display: inline-block">
+					<p:menubar styleClass="menu-sistema">
+						<p:submenu label="Cadastros">
+							<p:menuitem value="Clientes" />
+							<p:menuitem value="Usuários" />
+							<p:separator/>
+							<p:menuitem value="Categorias" />
+							<p:menuitem value="Produtos" outcome="/produtos/PesquisaProdutos" />
+						</p:submenu>
+						<p:submenu label="Pedidos">
+							<p:menuitem value="Novo pedido" outcome="/pedidos/CadastroPedido" />
+							<p:menuitem value="Pesquisa" outcome="/pedidos/PesquisaPedidos" />
+						</p:submenu>
+						<p:menuitem value="Sair" />
+					</p:menubar>
+				</h:form>
+			</div>
+			<div style="clear: both"></div>
+		</header>
 
-	<p:ajaxStatus styleClass="ajax-status" onsuccess="configurarMoeda()">
-		<f:facet name="start">
-			<h:graphicImage library="images" name="loading.gif" />
-		</f:facet>
-		<f:facet name="complete">
-			<h:outputText value="" />
-		</f:facet>
-	</p:ajaxStatus>
-
-	<header>
-	<div>
-		<h:link outcome="/Home">
-			<h:graphicImage library="images" name="logo-algaworks.png"/>
-		</h:link>
-	</div>
-	</header>
-
-	<div id="conteudo">
-		<ui:insert name="corpo" />
-	</div>
-
-	<p:separator style="margin-top: 20px" />
+		<div id="conteudo">
+			<ui:insert name="corpo"/>
+		</div>
+		
+		<p:separator style="margin-top: 20px"/>
 
 	<footer> Curso Online de Sistemas Comerciais Java EE com CDI,
 	JPA e PrimeFaces - <a href="http://bit.ly/Y8saFl" target="_blank">www.algaworks.com</a>
