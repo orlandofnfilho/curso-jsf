@@ -1,0 +1,10 @@
+com\algaworks\pedidovenda\service\NegocioException.class
+com\algaworks\pedidovenda\util\jsf\JsfExceptionHandlerFactory.class
+com\algaworks\pedidovenda\controller\PesquisaPedidosBean.class
+com\algaworks\pedidovenda\util\jsf\FacesUtil.class
+com\algaworks\pedidovenda\controller\PesquisaProdutosBean.class
+com\algaworks\pedidovenda\util\jsf\JsfExceptionHandler.class
+com\algaworks\pedidovenda\controller\CadastroProdutoBean.class
+com\algaworks\pedidovenda\util\cdi\ViewContextExtension.class
+com\algaworks\pedidovenda\util\cdi\ViewScopedContext.class
+com\algaworks\pedidovenda\controller\CadastroPedidoBean.class
