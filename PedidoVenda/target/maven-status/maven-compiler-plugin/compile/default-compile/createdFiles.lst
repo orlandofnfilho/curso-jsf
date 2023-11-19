@@ -1,1 +1,5 @@
+com\algaworks\pedidovenda\controller\PesquisaPedidosBean.class
 com\algaworks\pedidovenda\controller\PesquisaProdutosBean.class
+com\algaworks\pedidovenda\util\cdi\ViewContextExtension.class
+com\algaworks\pedidovenda\util\cdi\ViewScopedContext.class
+com\algaworks\pedidovenda\controller\CadastroPedidoBean.class
