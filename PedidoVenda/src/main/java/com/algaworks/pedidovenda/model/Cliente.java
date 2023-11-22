@@ -4,6 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Cliente implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -15,6 +22,8 @@ public class Cliente implements Serializable {
 	private TipoPessoa tipo;
 	private List<Endereco> enderecos = new ArrayList<>();
 
+	@Id
+	@GeneratedValue
 	public Long getId() {
 		return id;
 	}
@@ -55,6 +64,7 @@ public class Cliente implements Serializable {
 		this.tipo = tipo;
 	}
 
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
 	public List<Endereco> getEnderecos() {
 		return enderecos;
 	}
