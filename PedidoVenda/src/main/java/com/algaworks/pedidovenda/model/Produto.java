@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="produto")
@@ -61,6 +64,7 @@ public class Produto implements Serializable {
 		this.valorUnitario = valorUnitario;
 	}
 
+	@NotNull @Min(0) @Max(9999)
 	@Column(name="quantidade_estoque", nullable = false, length = 5)
 	public Integer getQuantidadeEstoque() {
 		return quantidadeEstoque;
@@ -78,6 +82,14 @@ public class Produto implements Serializable {
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
+	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "Produto [id=" + id + ", nome=" + nome + ", sku=" + sku + ", valorUnitario=" + valorUnitario
+				+ ", quantidadeEstoque=" + quantidadeEstoque + ", categoria=" + categoria + "]";
 	}
 
 	@Override
