@@ -19,6 +19,7 @@ com\algaworks\pedidovenda\model\FormaPagamento.class
 com\algaworks\pedidovenda\model\EnderecoEntrega.class
 com\algaworks\pedidovenda\service\NegocioException.class
 com\algaworks\pedidovenda\model\Pedido.class
+com\algaworks\pedidovenda\validation\SKU.class
 com\algaworks\pedidovenda\controller\PesquisaPedidosBean.class
 com\algaworks\pedidovenda\util\jsf\JsfExceptionHandler.class
 com\algaworks\pedidovenda\controller\CadastroProdutoBean.class
