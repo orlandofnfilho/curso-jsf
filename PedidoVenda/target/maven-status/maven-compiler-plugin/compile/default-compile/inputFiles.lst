@@ -9,6 +9,7 @@ E:\Projetos\curso-jsf\PedidoVenda\src\main\java\TesteCliente.java
 E:\Projetos\curso-jsf\PedidoVenda\src\main\java\com\algaworks\pedidovenda\model\TipoPessoa.java
 E:\Projetos\curso-jsf\PedidoVenda\src\main\java\com\algaworks\pedidovenda\model\Cliente.java
 E:\Projetos\curso-jsf\PedidoVenda\src\main\java\com\algaworks\pedidovenda\service\NegocioException.java
+E:\Projetos\curso-jsf\PedidoVenda\src\main\java\com\algaworks\pedidovenda\util\jpa\EntityManagerProducer.java
 E:\Projetos\curso-jsf\PedidoVenda\src\main\java\com\algaworks\pedidovenda\model\StatusPedido.java
 E:\Projetos\curso-jsf\PedidoVenda\src\main\java\com\algaworks\pedidovenda\util\jsf\JsfExceptionHandlerFactory.java
 E:\Projetos\curso-jsf\PedidoVenda\src\main\java\com\algaworks\pedidovenda\controller\PesquisaPedidosBean.java

@@ -16,6 +16,7 @@ TestePedido.class
 com\algaworks\pedidovenda\controller\CadastroPedidoBean.class
 com\algaworks\pedidovenda\model\Categoria.class
 com\algaworks\pedidovenda\model\FormaPagamento.class
+com\algaworks\pedidovenda\util\jpa\EntityManagerProducer.class
 com\algaworks\pedidovenda\model\EnderecoEntrega.class
 com\algaworks\pedidovenda\service\NegocioException.class
 com\algaworks\pedidovenda\model\Pedido.class
