@@ -9,35 +9,34 @@ import com.algaworks.pedidovenda.model.StatusPedido;
 import com.algaworks.pedidovenda.repository.Pedidos;
 import com.algaworks.pedidovenda.util.jpa.Transactional;
 
-public class EmissaoPedidoService implements Serializable {
+public class CancelamentoPedidoService implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Inject
-	private CadastroPedidoService cadastroPedidoService;
+	private Pedidos pedidos;
 	
 	@Inject
 	private EstoqueService estoqueService;
 	
-	@Inject
-	private Pedidos pedidos;
-	
 	@Transactional
-	public Pedido emitir(Pedido pedido) {
-		pedido = this.cadastroPedidoService.salvar(pedido);
+	public Pedido cancelar(Pedido pedido) {
+		pedido = this.pedidos.porId(pedido.getId());
 		
-		if (pedido.isNaoEmissivel()) {
-			throw new NegocioException("Pedido não pode ser emitido com status "
+		if (pedido.isNaoCancelavel()) {
+			throw new NegocioException("Pedido não pode ser cancelado no status "
 					+ pedido.getStatus().getDescricao() + ".");
 		}
 		
-		this.estoqueService.baixarItensEstoque(pedido);
+		if (pedido.isEmitido()) {
+			this.estoqueService.retornarItensEstoque(pedido);
+		}
 		
-		pedido.setStatus(StatusPedido.EMITIDO);
+		pedido.setStatus(StatusPedido.CANCELADO);
 		
 		pedido = this.pedidos.guardar(pedido);
 		
 		return pedido;
 	}
-	
+
 }
