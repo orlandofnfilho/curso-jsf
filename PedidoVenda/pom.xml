@@ -172,5 +172,12 @@
 			<url>http://repository.primefaces.org</url>
 			<layout>default</layout>
 		</repository>
+
+		<repository>
+			<id>clearfly-github</id>
+			<name>GitHub Clearfly Maven Repository</name>
+			<url>https://maven.pkg.github.com/clearfly/mvn</url>
+			<layout>default</layout>
+		</repository>
 	</repositories>
 </project>
