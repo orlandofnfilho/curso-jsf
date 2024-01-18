@@ -3,8 +3,6 @@ c
 3src/main/webapp/WEB-INF/template/LayoutPadrao.xhtml,e\a\eae3bcf345412ea9646e0916d39c1bd135c4ab87
 J
 src/main/webapp/Home.xhtml,0\0\008650dd792581d50d46c37f561ab6161e2cd00a
-W
-'src/main/webapp/resources/css/style.css,7\9\793286005b9090bf4b63c9281f5cbde07930695e
 K
 src/main/webapp/Login.xhtml,e\1\e140282288e610e7f893168378415d7d61a850e0
 7
@@ -15,3 +13,11 @@ _
 .src/main/webapp/produtos/CadastroProduto.xhtml,b\3\b39f6f93b4912301d8b6b05cd0cb5a7a03cf1e2e
 ]
 -src/main/webapp/pedidos/PesquisaPedidos.xhtml,0\6\06466be84f783322c7b7da7d8bd1f39ab64bcc31
+p
+@src/main/java/com/algaworks/pedidovenda/repository/Clientes.java,1\f\1fe956c0833bb3f7bae625c03fc8402a5bd03bc3
+r
+Bsrc/main/java/com/algaworks/pedidovenda/repository/Categorias.java,2\d\2dd8508660680eb0427a3b72c3a8360f006e12ac
+z
+Jsrc/main/java/com/algaworks/pedidovenda/controller/CadastroPedidoBean.java,c\4\c453175bbeaa08ae25f2bc4e3205bf39614551d0
+o
+?src/main/java/com/algaworks/pedidovenda/repository/Pedidos.java,f\a\fa9f6a46e82150ad5e6bc2f287e647e9e361e4f5

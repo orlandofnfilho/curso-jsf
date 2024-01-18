@@ -19,6 +19,7 @@ E:\Projetos\curso-jsf\PedidoVenda\src\main\java\com\algaworks\pedidovenda\reposi
 E:\Projetos\curso-jsf\PedidoVenda\src\main\java\com\algaworks\pedidovenda\model\Usuario.java
 E:\Projetos\curso-jsf\PedidoVenda\src\main\java\com\algaworks\pedidovenda\util\AppContextListener.java
 E:\Projetos\curso-jsf\PedidoVenda\src\main\java\com\algaworks\pedidovenda\validation\SKU.java
+E:\Projetos\curso-jsf\PedidoVenda\src\main\java\com\algaworks\pedidovenda\security\UsuarioSistema.java
 E:\Projetos\curso-jsf\PedidoVenda\src\main\java\com\algaworks\pedidovenda\controller\EmissaoPedidoBean.java
 E:\Projetos\curso-jsf\PedidoVenda\src\main\java\com\algaworks\pedidovenda\repository\Categorias.java
 E:\Projetos\curso-jsf\PedidoVenda\src\main\java\com\algaworks\pedidovenda\converter\PedidoConverter.java
@@ -33,6 +34,7 @@ E:\Projetos\curso-jsf\PedidoVenda\src\main\java\com\algaworks\pedidovenda\model\
 E:\Projetos\curso-jsf\PedidoVenda\src\main\java\com\algaworks\pedidovenda\service\NegocioException.java
 E:\Projetos\curso-jsf\PedidoVenda\src\main\java\com\algaworks\pedidovenda\service\CadastroProdutoService.java
 E:\Projetos\curso-jsf\PedidoVenda\src\main\java\com\algaworks\pedidovenda\controller\EnvioPedidoEmailBean.java
+E:\Projetos\curso-jsf\PedidoVenda\src\main\java\com\algaworks\pedidovenda\security\AppUserDetailsService.java
 E:\Projetos\curso-jsf\PedidoVenda\src\main\java\com\algaworks\pedidovenda\converter\CategoriaConverter.java
 E:\Projetos\curso-jsf\PedidoVenda\src\main\java\com\algaworks\pedidovenda\util\jsf\JsfExceptionHandlerFactory.java
 E:\Projetos\curso-jsf\PedidoVenda\src\main\java\com\algaworks\pedidovenda\controller\PesquisaPedidosBean.java

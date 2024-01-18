@@ -26,5 +26,10 @@
       <option name="name" value="PrimeFaces Maven Repository" />
       <option name="url" value="https://repository.primefaces.org" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="clearfly-github" />
+      <option name="name" value="GitHub Clearfly Maven Repository" />
+      <option name="url" value="https://maven.pkg.github.com/clearfly/mvn" />
+    </remote-repository>
   </component>
 </project>
