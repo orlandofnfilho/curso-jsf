@@ -21,3 +21,9 @@ z
 Jsrc/main/java/com/algaworks/pedidovenda/controller/CadastroPedidoBean.java,c\4\c453175bbeaa08ae25f2bc4e3205bf39614551d0
 o
 ?src/main/java/com/algaworks/pedidovenda/repository/Pedidos.java,f\a\fa9f6a46e82150ad5e6bc2f287e647e9e361e4f5
+{
+Ksrc/main/java/com/algaworks/pedidovenda/controller/PesquisaPedidosBean.java,2\2\223b24ff208681860044c0001d31265357d7dd82
+^
+.src/main/webapp/WEB-INF/applicationContext.xml,0\9\098550351661f776bec95040b2d50042c4599987
+J
+src/main/webapp/Erro.xhtml,6\e\6e1adafa893ef9e852284043a181c64dda14b09d

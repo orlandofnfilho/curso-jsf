@@ -44,7 +44,6 @@
 			<scope>compile</scope>
 		</dependency>
 
-
 		<!-- Núcleo do Hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>

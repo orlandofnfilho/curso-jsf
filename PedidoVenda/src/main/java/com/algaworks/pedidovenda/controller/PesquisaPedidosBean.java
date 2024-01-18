@@ -31,6 +31,8 @@ public class PesquisaPedidosBean implements Serializable {
 	}
 
 	public void pesquisar() {
+
+		System.out.printf("Chegou aqui!!!!!!");
 		pedidosFiltrados = pedidos.filtrados(filtro);
 	}
 	
