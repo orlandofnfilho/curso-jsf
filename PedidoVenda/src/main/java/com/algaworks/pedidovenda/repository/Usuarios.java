@@ -21,10 +21,13 @@ public class Usuarios implements Serializable {
 	}
 	
 	public List<Usuario> vendedores() {
-		// TODO filtrar apenas vendedores (por um grupo específico)
-		return this.manager.createQuery("from Usuario", Usuario.class)
-				.getResultList();
+	    return this.manager.createQuery(
+	        "SELECT u FROM Usuario u JOIN u.grupos g WHERE g.nome = :nomeGrupo", 
+	        Usuario.class)
+	        .setParameter("nomeGrupo", "Vendedores")
+	        .getResultList();
 	}
+
 
 	public Usuario porEmail(String email) {
 		Usuario usuario = null;
