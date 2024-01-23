@@ -5,21 +5,18 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:p="http://primefaces.org/ui">
 
+	<f:metadata>
+		<f:viewParam name="dummy"/>
+		<f:event listener="#{graficoPedidosCriadosBean.preRender}" type="preRenderView"/>
+	</f:metadata>
+
 	<ui:define name="titulo">Dashboard</ui:define>
 
 	<ui:define name="corpo">
-		<br/><br/><br/>Seja bem-vindo<br/><br/><br/>
 		
-			<p:toolbar style="margin-top: 20px">
-			<p:toolbarGroup>
-				<p:button value="Novo" outcome="/produtos/CadastroProduto" />
-			</p:toolbarGroup>
-			<p:toolbarGroup>
-				<p:button value="Pesquisa" outcome="/produtos/PesquisaProdutos"/>
-			</p:toolbarGroup>
-		</p:toolbar>
+		<p:lineChart value="#{graficoPedidosCriadosBean.model}" title="Pedidos criados"
+			style="height: 400px" animate="true" minY="0" legendPosition="e" />
+		
 	</ui:define>
-	
-	
 
 </ui:composition>
