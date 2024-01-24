@@ -1,6 +1,7 @@
 package com.algaworks.pedidovenda.security;
 
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.Produces;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -12,7 +13,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 @RequestScoped
 public class Seguranca {
 
-	
 	@Inject
 	private ExternalContext externalContext;
 	
@@ -22,14 +22,15 @@ public class Seguranca {
 		UsuarioSistema usuarioLogado = getUsuarioLogado();
 		
 		if (usuarioLogado != null) {
-			String[] primeiroNome = usuarioLogado.getUsuario().getNome().split(" ");
-			nome = primeiroNome[0];
+			nome = usuarioLogado.getUsuario().getNome();
 		}
 		
 		return nome;
 	}
 
-	private UsuarioSistema getUsuarioLogado() {
+	@Produces
+	@UsuarioLogado
+	public UsuarioSistema getUsuarioLogado() {
 		UsuarioSistema usuario = null;
 		
 		UsernamePasswordAuthenticationToken auth = (UsernamePasswordAuthenticationToken) 
