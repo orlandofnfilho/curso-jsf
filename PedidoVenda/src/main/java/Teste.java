@@ -35,7 +35,9 @@ public class Teste {
 		
 		manager.persist(cliente);
 		
-		trx.commit();
+//		trx.commit();
+			
+		
 	}
 	
 }
