@@ -9,6 +9,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceException;
 
 import com.algaworks.pedidovenda.model.Categoria;
+import com.algaworks.pedidovenda.model.Cliente;
 import com.algaworks.pedidovenda.service.NegocioException;
 import com.algaworks.pedidovenda.util.jpa.Transactional;
 
@@ -56,6 +57,22 @@ public class Categorias implements Serializable {
 		} catch (NoResultException e) {
 			return null;
 		}
+	}
+	
+	public List<Categoria> listarPorDescricao(String descricao) {
+		return this.manager.createQuery("from Categoria " +
+				"where upper(descricao) like :descricao", Categoria.class)
+				.setParameter("descricao", descricao.toUpperCase() + "%")
+				.getResultList();
+	}
+	
+	public List<Categoria> listarSubcategoriasPorDescricao(String descricao, Categoria categoriaPai) {
+	    return this.manager.createQuery("from Categoria c " +
+	            "where upper(c.descricao) like :descricao " +
+	            "and c.categoriaPai = :categoriaPai", Categoria.class)
+	            .setParameter("descricao", descricao.toUpperCase() + "%")
+	            .setParameter("categoriaPai", categoriaPai)
+	            .getResultList();
 	}
 	
 }
