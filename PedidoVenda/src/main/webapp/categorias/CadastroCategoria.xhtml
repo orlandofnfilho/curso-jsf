@@ -34,15 +34,14 @@
 			<p:panelGrid columns="2" id="painel"
 				style="width: 100%; margin-top: 20px" columnClasses="rotulo, campo">
 
-				<p:outputLabel value="Categoria" for="categoria" />
-				<p:autoComplete id="categoria" size="40" dropdown="true"
-					value="#{cadastroCategoriaBean.categoria}"
-					completeMethod="#{cadastroCategoriaBean.completarPorDescricao}"
-					var="categoria" itemLabel="#{categoria.descricao}"
-					itemValue="#{categoria}" forceSelection="true" />
-	    		<p:outputLabel value="SubCategoria" for="subDescricao"/>
-	    		<p:inputText id="subDescricao" size="40" maxlength="40" value="#{cadastroCategoriaBean.subCategoria.descricao}"/>
-	    	</p:panelGrid> 
+				<p:outputLabel value="Categoria" for="descricao" />
+				<p:inputText id="descricao" size="40" maxlength="40"
+					value="#{cadastroCategoriaBean.categoria.descricao}" />
+
+				<p:outputLabel value="SubCategoria" for="subDescricao" />
+				<p:inputText id="subDescricao" size="40" maxlength="40"
+					value="#{cadastroCategoriaBean.subCategoria.descricao}" />
+			</p:panelGrid>
 		</h:form>
 	</ui:define>
 </ui:composition>

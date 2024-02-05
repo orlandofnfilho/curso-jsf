@@ -29,9 +29,6 @@ public class CadastroCategoriaBean implements Serializable {
 
 	private Categoria categoria;
 	private Categoria subCategoria;
-	
-	private List<Categoria> categoriasRaizes;
-	private List<Categoria> subcategorias;
 
 	public CadastroCategoriaBean() {
 		limpar();
@@ -52,16 +49,10 @@ public class CadastroCategoriaBean implements Serializable {
 		FacesUtil.addInfoMessage("Categoria salva com sucesso!");
 	}
 	
-	public void carregarSubcategorias() {
-		subcategorias = categorias.subcategoriasDe(categoria);
-	}
-	
-
 	public boolean isEditando() {
 	    return this.categoria.getId() != null || this.subCategoria.getId() != null;
 	}
 	
-	@NotNull
 	public Categoria getCategoria() {
 		return categoria;
 	}
@@ -80,17 +71,8 @@ public class CadastroCategoriaBean implements Serializable {
 	public void setSubCategoria(Categoria subCategoria) {
 		this.subCategoria = subCategoria;
 	}
-
-	public List<Categoria> getCategoriasRaizes() {
-		return categoriasRaizes;
-	}
-
-
-	public List<Categoria> getSubcategorias() {
-		return subcategorias;
-	}
 	
 	public List<Categoria> completarPorDescricao(String descricao) {
 		return categorias.listarPorDescricao(descricao);
-	}	
+	}
 }

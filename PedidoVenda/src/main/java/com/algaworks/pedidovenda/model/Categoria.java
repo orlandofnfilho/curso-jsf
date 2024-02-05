@@ -7,14 +7,14 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import org.hibernate.validator.constraints.NotEmpty;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "categoria")
@@ -56,7 +56,7 @@ public class Categoria implements Serializable {
 		this.categoriaPai = categoriaPai;
 	}
 
-	@OneToMany(mappedBy = "categoriaPai", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "categoriaPai", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	public List<Categoria> getSubcategorias() {
 		return subcategorias;
 	}
@@ -95,7 +95,13 @@ public class Categoria implements Serializable {
 		return "Categoria [id=" + id + ", descricao=" + descricao + ", categoriaPai=" + categoriaPai
 				+ ", subcategorias=" + subcategorias + "]";
 	}
-	
-	
+
+	@Transient
+	public boolean isSubCategoria() {
+		if(categoriaPai != null) {
+			return true;
+		}
+		return false;
+	}
 
 }

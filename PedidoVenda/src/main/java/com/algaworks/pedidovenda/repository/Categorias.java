@@ -19,25 +19,24 @@ public class Categorias implements Serializable {
 
 	@Inject
 	private EntityManager manager;
-	
+
 	public Categoria porId(Long id) {
 		return manager.find(Categoria.class, id);
 	}
-	
+
 	public List<Categoria> raizes() {
-		return manager.createQuery("from Categoria where categoriaPai is null", 
-				Categoria.class).getResultList();
+		return manager.createQuery("from Categoria where categoriaPai is null", Categoria.class).getResultList();
 	}
-	
+
 	public List<Categoria> subcategoriasDe(Categoria categoriaPai) {
-		return manager.createQuery("from Categoria where categoriaPai = :raiz", 
-				Categoria.class).setParameter("raiz", categoriaPai).getResultList();
+		return manager.createQuery("from Categoria where categoriaPai = :raiz", Categoria.class)
+				.setParameter("raiz", categoriaPai).getResultList();
 	}
-	
+
 	public Categoria guardar(Categoria categoria) {
 		return manager.merge(categoria);
 	}
-	
+
 	@Transactional
 	public void remover(Categoria categoria) {
 		try {
@@ -48,31 +47,31 @@ public class Categorias implements Serializable {
 			throw new NegocioException("Categoria não pode ser excluída.");
 		}
 	}
-	
+
 	public Categoria porDescricao(String descricao) {
 		try {
 			return manager.createQuery("from Categoria where upper(descricao) = :descricao", Categoria.class)
-					.setParameter("descricao", descricao.toUpperCase())
-					.getSingleResult();
+					.setParameter("descricao", descricao.toUpperCase()).getSingleResult();
 		} catch (NoResultException e) {
 			return null;
 		}
 	}
-	
+
 	public List<Categoria> listarPorDescricao(String descricao) {
-		return this.manager.createQuery("from Categoria " +
-				"where upper(descricao) like :descricao", Categoria.class)
-				.setParameter("descricao", descricao.toUpperCase() + "%")
-				.getResultList();
+		return this.manager
+				.createQuery("from Categoria c " + "where c.categoriaPai is null "
+						+ "and upper(c.descricao) like :descricao", Categoria.class)
+				.setParameter("descricao", descricao.toUpperCase() + "%").getResultList();
 	}
-	
-	public List<Categoria> listarSubcategoriasPorDescricao(String descricao, Categoria categoriaPai) {
-	    return this.manager.createQuery("from Categoria c " +
-	            "where upper(c.descricao) like :descricao " +
-	            "and c.categoriaPai = :categoriaPai", Categoria.class)
-	            .setParameter("descricao", descricao.toUpperCase() + "%")
-	            .setParameter("categoriaPai", categoriaPai)
-	            .getResultList();
+
+	public boolean existeSubcategoria(String descricao, Categoria categoriaPai) {
+		Long count = manager
+				.createQuery("select count(c.id) from Categoria c " + "where upper(c.descricao) = :descricao "
+						+ "and c.categoriaPai = :categoriaPai", Long.class)
+				.setParameter("descricao", descricao.toUpperCase()).setParameter("categoriaPai", categoriaPai)
+				.getSingleResult();
+
+		return count > 0; 
 	}
-	
+
 }
