@@ -35,11 +35,14 @@ public class PesquisaCategoriasBean implements Serializable {
 	}
 	
 	public void excluir() {
-		categorias.remover(categoriaSelecionada);
-		categoriasFiltradas.remove(categoriaSelecionada);
-		
-		FacesUtil.addInfoMessage("Categoria " + categoriaSelecionada.getDescricao() 
-				+ " excluída com sucesso.");
+	    try {
+	        categorias.remover(categoriaSelecionada);
+	        categoriasFiltradas.remove(categoriaSelecionada);
+	        
+	        FacesUtil.addInfoMessage("Categoria " + categoriaSelecionada.getDescricao() + " excluída com sucesso.");
+	    } catch (Exception e) {
+	        FacesUtil.addErrorMessage("Erro ao excluir a categoria: " + e.getMessage());
+	    }
 	}
 	public List<Categoria> getCategoriasFiltradas() {
 		return categoriasFiltradas;

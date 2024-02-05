@@ -56,7 +56,7 @@ public class Categoria implements Serializable {
 		this.categoriaPai = categoriaPai;
 	}
 
-	@OneToMany(mappedBy = "categoriaPai", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "categoriaPai", cascade = CascadeType.ALL)
 	public List<Categoria> getSubcategorias() {
 		return subcategorias;
 	}
@@ -94,14 +94,6 @@ public class Categoria implements Serializable {
 	public String toString() {
 		return "Categoria [id=" + id + ", descricao=" + descricao + ", categoriaPai=" + categoriaPai
 				+ ", subcategorias=" + subcategorias + "]";
-	}
-
-	@Transient
-	public boolean isSubCategoria() {
-		if(categoriaPai != null) {
-			return true;
-		}
-		return false;
 	}
 
 }

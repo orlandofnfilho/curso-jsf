@@ -36,8 +36,7 @@
 				emptyMessage="Nenhuma categoria encontrada." rows="20"
 				paginator="true" paginatorAlwaysVisible="false"
 				paginatorPosition="bottom">
-				<p:column headerText="Número"
-					style="text-align: center; width: 100px">
+				<p:column headerText="Id" style="text-align: center; width: 100px">
 					<h:outputText value="#{categoria.id}" />
 				</p:column>
 				<p:column headerText="Categoria">
@@ -48,6 +47,7 @@
 					<h:outputText rendered="#{categoria.categoriaPai != null}"
 						value="#{categoria.descricao}" />
 				</p:column>
+				
 				<p:column style="width: 100px; text-align: center">
 					<p:button outcome="/categorias/CadastroCategoria"
 						icon="ui-icon-pencil" title="Editar">
@@ -61,20 +61,16 @@
 							value="#{categoria}" />
 					</p:commandButton>
 				</p:column>
-			</p:dataTable>
-
-
-
-			<p:confirmDialog header="Exclusão de categoria"
-				message="Tem certeza que deseja excluir a categoria #{pesquisaCategoriasBean.categoriaSelecionada.id}?"
-				widgetVar="confirmacaoExclusao" id="confirmacaoExclusaoDialog">
-				<p:button value="Não"
-					onclick="confirmacaoExclusao.hide(); return false;" />
-				<p:commandButton value="Sim"
-					oncomplete="confirmacaoExclusao.hide();"
-					action="#{pesquisaCategoriasBean.excluir}" process="@this"
-					update=":frmPesquisa:categoriasTable" />
-			</p:confirmDialog>
+			</p:dataTable>			
+			
+			<p:confirmDialog header="Exclusão de categoria" 
+	    		message="Tem certeza que deseja excluir a categoria #{pesquisaCategoriasBean.categoriaSelecionada.descricao}?"
+	    		widgetVar="confirmacaoExclusao"	id="confirmacaoExclusaoDialog">
+	    		<p:button value="Não" onclick="confirmacaoExclusao.hide(); return false;" />
+	    		<p:commandButton value="Sim" oncomplete="confirmacaoExclusao.hide();"
+	    			action="#{pesquisaCategoriasBean.excluir}" process="@this"
+	    			update=":frmPesquisa:categoriasTable" />
+	    	</p:confirmDialog>
 		</h:form>
 	</ui:define>
 </ui:composition>
