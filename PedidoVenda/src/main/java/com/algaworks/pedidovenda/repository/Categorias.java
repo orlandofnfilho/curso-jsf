@@ -8,8 +8,17 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceException;
 
+import org.apache.commons.lang3.StringUtils;
+import org.hibernate.Criteria;
+import org.hibernate.NullPrecedence;
+import org.hibernate.Session;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
+
 import com.algaworks.pedidovenda.model.Categoria;
-import com.algaworks.pedidovenda.model.Cliente;
+import com.algaworks.pedidovenda.repository.filter.CategoriaFilter;
 import com.algaworks.pedidovenda.service.NegocioException;
 import com.algaworks.pedidovenda.util.jpa.Transactional;
 
@@ -73,5 +82,24 @@ public class Categorias implements Serializable {
 
 		return count > 0; 
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Categoria> filtradas(CategoriaFilter filtro) {
+	    Session session = manager.unwrap(Session.class);
+	    Criteria criteria = session.createCriteria(Categoria.class);
+	    
+	    if (StringUtils.isNotBlank(filtro.getDescricao())) {
+	        Criterion descricaoCategoria = Restrictions.ilike("descricao", filtro.getDescricao(), MatchMode.ANYWHERE);
+	        Criterion descricaoCategoriaPai = Restrictions.ilike("categoriaPai.descricao", filtro.getDescricao(), MatchMode.ANYWHERE);
+	        criteria.add(Restrictions.or(descricaoCategoria, descricaoCategoriaPai));
+	    }
+	    
+	    Order orderByCategoriaPai = Order.asc("categoriaPai.id").nulls(NullPrecedence.FIRST);
+	    Order orderByDescricao = Order.asc("descricao");
+	    criteria.addOrder(orderByCategoriaPai).addOrder(orderByDescricao);
+	    
+	    return criteria.list();
+	}
+
 
 }
