@@ -37,10 +37,10 @@ public class CadastroCategoriaBean implements Serializable {
 		if (this.categoriaPaiId != null) { 
 			this.categoria = categorias.porId(this.categoriaPaiId);
 		}
-		if (this.subCategoria != null) { 
-			Categoria subcategoria = categorias.porId(this.subcategoriaId);
-			this.subCategoria = categorias.porId(subcategoriaId);
+		if (this.subcategoriaId != null) { 
+		    this.subCategoria = categorias.porId(this.subcategoriaId);
 		}
+
 
 	}
 
@@ -50,7 +50,7 @@ public class CadastroCategoriaBean implements Serializable {
 	}
 
 	public void salvar() {
-		cadastroCategoriaService.salvar(categoria);
+		cadastroCategoriaService.salvar(categoria, subCategoria);
 		limpar();
 		FacesUtil.addInfoMessage("Categoria salva com sucesso!");
 	}
