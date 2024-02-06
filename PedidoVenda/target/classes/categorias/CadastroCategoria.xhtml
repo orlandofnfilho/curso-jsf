@@ -9,7 +9,12 @@
 
 	<ui:define name="corpo">
 		<f:metadata>
-			<o:viewParam name="categoria" value="#{cadastroCategoriaBean.categoria}"/>
+			<f:viewParam name="categoriaId"
+				value="#{cadastroCategoriaBean.categoriaId}" />
+			<f:viewParam name="categoriaPaiId"
+				value="#{cadastroCategoriaBean.categoriaPaiId}" />
+			<f:viewParam name="subcategoriaId"
+				value="#{cadastroCategoriaBean.subcategoriaId}" />
 			<f:event listener="#{cadastroCategoriaBean.inicializar}"
 				type="preRenderView" />
 		</f:metadata>

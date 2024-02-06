@@ -7,15 +7,9 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceException;
+import javax.persistence.Query;
 
 import org.apache.commons.lang3.StringUtils;
-import org.hibernate.Criteria;
-import org.hibernate.NullPrecedence;
-import org.hibernate.Session;
-import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.MatchMode;
-import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Restrictions;
 
 import com.algaworks.pedidovenda.model.Categoria;
 import com.algaworks.pedidovenda.repository.filter.CategoriaFilter;
@@ -66,13 +60,6 @@ public class Categorias implements Serializable {
 		}
 	}
 
-	public List<Categoria> listarPorDescricao(String descricao) {
-		return this.manager
-				.createQuery("from Categoria c " + "where c.categoriaPai is null "
-						+ "and upper(c.descricao) like :descricao", Categoria.class)
-				.setParameter("descricao", descricao.toUpperCase() + "%").getResultList();
-	}
-
 	public boolean existeSubcategoria(String descricao, Categoria categoriaPai) {
 		Long count = manager
 				.createQuery("select count(c.id) from Categoria c " + "where upper(c.descricao) = :descricao "
@@ -80,26 +67,21 @@ public class Categorias implements Serializable {
 				.setParameter("descricao", descricao.toUpperCase()).setParameter("categoriaPai", categoriaPai)
 				.getSingleResult();
 
-		return count > 0; 
-	}
-	
-	@SuppressWarnings("unchecked")
-	public List<Categoria> filtradas(CategoriaFilter filtro) {
-	    Session session = manager.unwrap(Session.class);
-	    Criteria criteria = session.createCriteria(Categoria.class);
-	    
-	    if (StringUtils.isNotBlank(filtro.getDescricao())) {
-	        Criterion descricaoCategoria = Restrictions.ilike("descricao", filtro.getDescricao(), MatchMode.ANYWHERE);
-	        Criterion descricaoCategoriaPai = Restrictions.ilike("categoriaPai.descricao", filtro.getDescricao(), MatchMode.ANYWHERE);
-	        criteria.add(Restrictions.or(descricaoCategoria, descricaoCategoriaPai));
-	    }
-	    
-	    Order orderByCategoriaPai = Order.asc("categoriaPai.id").nulls(NullPrecedence.FIRST);
-	    Order orderByDescricao = Order.asc("descricao");
-	    criteria.addOrder(orderByCategoriaPai).addOrder(orderByDescricao);
-	    
-	    return criteria.list();
+		return count > 0;
 	}
 
+	public List<Categoria> filtradas(CategoriaFilter filtro) {
+		String jpql = "SELECT c FROM Categoria c LEFT JOIN c.categoriaPai cp WHERE 1=1";
+		if (StringUtils.isNotBlank(filtro.getDescricao())) {
+			jpql += " AND (LOWER(c.descricao) LIKE LOWER(:descricao) OR LOWER(cp.descricao) LIKE LOWER(:descricao))";
+		}
+		jpql += " ORDER BY cp.id NULLS FIRST, c.descricao ASC";
+
+		Query query = manager.createQuery(jpql);
+		if (StringUtils.isNotBlank(filtro.getDescricao())) {
+			query.setParameter("descricao", "%" + filtro.getDescricao() + "%");
+		}
+		return query.getResultList();
+	}
 
 }

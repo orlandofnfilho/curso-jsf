@@ -47,11 +47,17 @@
 					<h:outputText rendered="#{categoria.categoriaPai != null}"
 						value="#{categoria.descricao}" />
 				</p:column>
-				
+
 				<p:column style="width: 100px; text-align: center">
 					<p:button outcome="/categorias/CadastroCategoria"
 						icon="ui-icon-pencil" title="Editar">
-						<f:param name="categoria" value="#{categoria.id}" />
+						<f:param name="categoriaId" value="#{categoria.id}" />
+						<f:param name="categoriaPaiId"
+							rendered="#{categoria.categoriaPai != null}"
+							value="#{categoria.categoriaPai.id}" />
+						<f:param name="subcategoriaId"
+							rendered="#{categoria.categoriaPai != null}"
+							value="#{categoria.id}" />
 					</p:button>
 					<p:commandButton icon="ui-icon-trash" title="Excluir"
 						oncomplete="confirmacaoExclusao.show()" process="@this"
@@ -61,16 +67,18 @@
 							value="#{categoria}" />
 					</p:commandButton>
 				</p:column>
-			</p:dataTable>			
-			
-			<p:confirmDialog header="Exclusão de categoria" 
-	    		message="Tem certeza que deseja excluir a categoria #{pesquisaCategoriasBean.categoriaSelecionada.descricao}?"
-	    		widgetVar="confirmacaoExclusao"	id="confirmacaoExclusaoDialog">
-	    		<p:button value="Não" onclick="confirmacaoExclusao.hide(); return false;" />
-	    		<p:commandButton value="Sim" oncomplete="confirmacaoExclusao.hide();"
-	    			action="#{pesquisaCategoriasBean.excluir}" process="@this"
-	    			update=":frmPesquisa:categoriasTable" />
-	    	</p:confirmDialog>
+			</p:dataTable>
+
+			<p:confirmDialog header="Exclusão de categoria"
+				message="Tem certeza que deseja excluir a categoria #{pesquisaCategoriasBean.categoriaSelecionada.descricao}?"
+				widgetVar="confirmacaoExclusao" id="confirmacaoExclusaoDialog">
+				<p:button value="Não"
+					onclick="confirmacaoExclusao.hide(); return false;" />
+				<p:commandButton value="Sim"
+					oncomplete="confirmacaoExclusao.hide();"
+					action="#{pesquisaCategoriasBean.excluir}" process="@this"
+					update=":frmPesquisa:categoriasTable" />
+			</p:confirmDialog>
 		</h:form>
 	</ui:define>
 </ui:composition>

@@ -51,6 +51,10 @@ public class PesquisaCategoriasBean implements Serializable {
 	public CategoriaFilter getFiltro() {
 		return filtro;
 	}
+	
+	public void setFiltro(CategoriaFilter filtro) {
+		this.filtro = filtro;
+	}
 
 	public Categoria getCategoriaSelecionada() {
 		return categoriaSelecionada;
