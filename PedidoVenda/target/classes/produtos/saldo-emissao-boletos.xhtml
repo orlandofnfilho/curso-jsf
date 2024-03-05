@@ -42,34 +42,18 @@
 					<div class="box-white">
 						<h2 class="ttl-sec mb5" style="font-weight: bold;">SERVIÇO
 							DESEJADO:</h2>
-						<div class="row mt30">
-							<div class="medium-15 large-15 columns">
-								<div class="box-valor-btn">
-									<p:commandLink value="PARCELAS EM ABERTO" id="parcelasEmAberto"
-										action="#{saldoEmissaoBoletosController.selecionarTodasParcelas}"
-										styleClass="btn-red" style="float: left"
-										oncomplete="resetValoresTotais();" process="@form"
-										update="@form" />
-								</div>
-								<div class="box-valor-btn">
-									<p:commandLink value="IMPRESSÃO DO CARNÊ DIGITAL"
-										id="impressaoCarne"
-										action="#{saldoEmissaoBoletosController.selecionarTodasParcelas}"
-										styleClass="btn-red" style="float: right"
-										oncomplete="resetValoresTotais();" process="@form"
-										update="@form" />
-								</div>
-							</div>
-							<div class="medium-15 large-15 columns">
-								<div class="box-valor-btn">
-									<p:commandLink value="IMPRESSÃO DO CARNÊ DIGITAL"
-										id="impressaoCarne"
-										action="#{saldoEmissaoBoletosController.selecionarTodasParcelas}"
-										styleClass="btn-red" style="float: right"
-										oncomplete="resetValoresTotais();" process="@form"
-										update="@form" />
-								</div>
-							</div>
+						<div class="box-valor-btn" style="display: flex; gap: 5px;">
+							<p:commandLink value="PARCELAS EM ABERTO" id="parcelasEmAberto"
+								action="#{saldoEmissaoBoletosController.selecionarTodasParcelas}"
+								styleClass="btn-red" oncomplete="resetValoresTotais();"
+								process="@form" update="@form" />
+
+							<p:commandLink value="IMPRESSÃO DO CARNÊ DIGITAL"
+								id="impressaoCarneDigital"
+								action="#{saldoEmissaoBoletosController.selecionarTodasParcelas}"
+								styleClass="btn-red" oncomplete="resetValoresTotais();"
+								process="@form" update="@form" />
+
 						</div>
 						<p class="quantidadeParcelas">Nenhuma parcela selecionada</p>
 						<f:subview
