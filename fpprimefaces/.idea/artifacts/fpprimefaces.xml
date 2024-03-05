@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="fpprimefaces">
+    <output-path>$PROJECT_DIR$/out/artifacts/fpprimefaces</output-path>
+    <root id="archive" name="fpprimefaces.jar">
+      <element id="library" level="project" name="Maven: org.glassfish:javax.faces:2.1.17" />
+      <element id="library" level="project" name="Maven: org.primefaces:primefaces:3.5" />
+      <element id="module-output" name="fpprimefaces" />
+    </root>
+  </artifact>
+</component>

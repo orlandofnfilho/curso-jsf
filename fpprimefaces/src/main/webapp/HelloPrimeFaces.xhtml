@@ -9,26 +9,12 @@
 <h:body>
 
 	<h:form>
-	
-		<h:panelGrid columns="2">
-			<h:outputLabel value="Nome"/>
-			<h:inputText/>
-			
-			<h:outputLabel value="Data de nascimento"/>
-			<h:inputText/>
-		</h:panelGrid>
-		<h:commandButton value="Cadastrar"/>
+
+		<h:outputLabel for="nome" value="Nome:" />
+		<h:inputText id="nome" value="#{testeController.nome}" />
+		<h:commandButton value="Enviar" action="#{testeController.imprimirNome}" />
 	
 		<br/><br/>
-	
-		<p:panelGrid columns="2">
-			<p:outputLabel value="Nome"/>
-			<p:inputText/>
-			
-			<p:outputLabel value="Data de nascimento"/>
-			<p:calendar/>
-		</p:panelGrid>
-		<p:commandButton value="Cadastrar"/>
 	
 	</h:form>
 

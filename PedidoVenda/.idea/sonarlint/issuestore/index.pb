@@ -27,3 +27,11 @@ Ksrc/main/java/com/algaworks/pedidovenda/controller/PesquisaPedidosBean.java,2\
 .src/main/webapp/WEB-INF/applicationContext.xml,0\9\098550351661f776bec95040b2d50042c4599987
 J
 src/main/webapp/Erro.xhtml,6\e\6e1adafa893ef9e852284043a181c64dda14b09d
+z
+Jsrc/main/java/com/algaworks/pedidovenda/service/CadastroPedidoService.java,e\9\e9da800f8aff611e5dac62098b08fec21d167267
+O
+src/main/java/TesteCliente.java,9\5\95c61f1032529e703101d955d4ed70fdb10612b6
+H
+src/main/java/Teste.java,a\2\a27122abf51d4047823b5a5e028f60e8c852bf02
+l
+<src/main/java/com/algaworks/pedidovenda/model/Categoria.java,a\1\a1a0f65ebaed934f4174d412324617b2a347f153
