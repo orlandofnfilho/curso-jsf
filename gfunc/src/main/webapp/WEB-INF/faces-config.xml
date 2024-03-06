@@ -15,9 +15,9 @@
 	</application>
     
     <factory>
-		<!--<exception-handler-factory>
-			com.algaworks.pedidovenda.util.jsf.JsfExceptionHandlerFactory
-		</exception-handler-factory>  -->
+		<exception-handler-factory>
+			br.com.gfunc.util.jsf.JsfExceptionHandlerFactory
+		</exception-handler-factory>
 	</factory>
     
 </faces-config>
