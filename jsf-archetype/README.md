@@ -4,7 +4,7 @@
 
 1. **Criar projeto maven**
 2. **Configurar Java no Build path e maven**
-3. **Adiciona dependências no pom.xml disponível em resources/..**
+3. **Adicionar dependências no pom.xml disponível em resources/..**
 4. **Adicionar o project facets**
 5. **Criar pastas WEB-INF e META-INF**
 6. **Adicionar o context.xml disponível em resources/.. na src/webapp/META-INF**
@@ -13,6 +13,7 @@
 8. **Adicionar o beans.xml disponível em resources/.. na src/resources/META-INF**
 9. **Adicionar o persistence.xml em resources/.. na src/resources/META-INF**
 10. **Adicionar o javax.enterprise.inject.spi.Extension disponível em resources/.. na src/resources/META-INF/services**
+11. **Adicionar o ValidationMessages.properties disponível em resources/.. na src/resources/..**
 ````
     2.1 \TABLES\TB_EMAIL.sql
     2.2 \STOREDPROCEDURES\DEL_EMAIL_BY_ID.sql
