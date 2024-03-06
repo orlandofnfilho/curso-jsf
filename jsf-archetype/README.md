@@ -18,6 +18,9 @@
 13. **Adicionar o arquivo Messages.properties disponível em resources/.. na src/resources/{package}..**
 14. **Adicionar o arquivo log4j.properties disponível em resources/.. na src/resources/..**
 15. **Criar o package util.cdi e adicionar as classes disponíveis em resources/util/cdi..**
+16. **Criar o package util.jsf e adicionar as classes disponíveis em resources/util/jsf..**
+17. **Criar o package util.jpa e adicionar as classes disponíveis em resources/util/jpa..**
+18. **Criar a Classe AppContextListener.java disponível em resrouces/util..**
 
 ````
     2.1 \TABLES\TB_EMAIL.sql
