@@ -14,6 +14,11 @@
 9. **Adicionar o persistence.xml em resources/.. na src/resources/META-INF**
 10. **Adicionar o javax.enterprise.inject.spi.Extension disponível em resources/.. na src/resources/META-INF/services**
 11. **Adicionar o ValidationMessages.properties disponível em resources/.. na src/resources/..**
+12. **Criar um pacote em resources para adicionar o arquivo Messages.properties**
+13. **Adicionar o arquivo Messages.properties disponível em resources/.. na src/resources/{package}..**
+14. **Adicionar o arquivo log4j.properties disponível em resources/.. na src/resources/..**
+15. **Criar o package util.cdi e adicionar as classes disponíveis em resources/util/cdi..**
+
 ````
     2.1 \TABLES\TB_EMAIL.sql
     2.2 \STOREDPROCEDURES\DEL_EMAIL_BY_ID.sql
