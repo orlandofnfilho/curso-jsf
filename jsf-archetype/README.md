@@ -1,14 +1,18 @@
 # JSF + PRIMEFACES TEMPLATE
 
-### Passo a Passo Eclipse
+### Passo a Passo
 
 1. **Criar projeto maven**
 2. **Configurar Java no Build path e maven**
-2. **Adiciona dependências no pom.xml disponível em resources/..**
-3. **Adicionar o project facets**
-4. **Criar pastas WEB-INF e META-INF**
-5. **Adicionar o context.xml disponível em resources/.. na META-INF**
-6. **Adicionar o web.xml disponível em resources/.. na META-INF**
+3. **Adiciona dependências no pom.xml disponível em resources/..**
+4. **Adicionar o project facets**
+5. **Criar pastas WEB-INF e META-INF**
+6. **Adicionar o context.xml disponível em resources/.. na src/webapp/META-INF**
+7. **Adicionar o web.xml disponível em resources/.. na src/webapp/WEB-INF**
+7. **Adicionar o faces-config.xml disponível em resources/.. na src/webapp/WEB-INF**
+8. **Adicionar o beans.xml disponível em resources/.. na src/resources/META-INF**
+9. **Adicionar o persistence.xml em resources/.. na src/resources/META-INF**
+10. **Adicionar o javax.enterprise.inject.spi.Extension disponível em resources/.. na src/resources/META-INF/services**
 ````
     2.1 \TABLES\TB_EMAIL.sql
     2.2 \STOREDPROCEDURES\DEL_EMAIL_BY_ID.sql
