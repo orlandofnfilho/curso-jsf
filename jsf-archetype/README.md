@@ -21,26 +21,3 @@
 16. **Criar o package util.jsf e adicionar as classes disponíveis em resources/util/jsf..**
 17. **Criar o package util.jpa e adicionar as classes disponíveis em resources/util/jpa..**
 18. **Criar a Classe AppContextListener.java disponível em resrouces/util..**
-
-````
-    2.1 \TABLES\TB_EMAIL.sql
-    2.2 \STOREDPROCEDURES\DEL_EMAIL_BY_ID.sql
-    2.3 \STOREDPROCEDURES\INS_EMAIL.sql
-    2.4 \STOREDPROCEDURES\SEL_EMAIL_DESTINATARIO.sql
-    2.5 \STOREDPROCEDURES\SEL_EMAIL_REMETENTE.sql
-    2.6 \SCRIPT\INSERT_TB_EMAIL.sql (Opcional)
-````
-
-3. **Fazer o deploy do EAR na pasta Build no TIBCO Administrator**
-
-````
-TIB_EMAIL_SERVICE.ear
-````
-
-4. **Alterar valores das variaveis globais após o deploy**
-
-![global variables](Documentacao/imgs/gv.jpg)
-
-5. **Iniciar a instância criada a partir do deploy no TIBCO Administrator**
-
-![service instance](Documentacao/imgs/service-instance.jpg)
