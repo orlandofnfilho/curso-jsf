@@ -1,0 +1,178 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+
+
+
+	<ui:define name="titulo">Consulta Historico do Veiculo</ui:define>
+
+	<ui:define name="corpo">
+		<h:form id="frmSaldoEmissaoBoletos">
+			<h1>Historico do Veiculo</h1>
+
+			<p:messages autoUpdate="true" closable="true" />
+
+			<p:toolbar style="margin-top: 20px">
+
+				<p:toolbarGroup align="right">
+					<p:button value="Novo" outcome="/produtos/CadastroProduto" />
+				</p:toolbarGroup>
+			</p:toolbar>
+
+
+			<pe:importEnum type="com.algaworks.pedidovenda.model.enums.Servico"
+				var="Servico" />
+			<p:breadCrumb>
+				<p:menuitem value="Home" url="#" />
+				<p:menuitem value="Saldo e Emissão de Boletos" />
+			</p:breadCrumb>
+
+			<div class="row">
+				<p:menu>
+					<p:menuitem value="Saldo e Emissão de Boletos"
+						outcome="/produtos/CadastroProduto" />
+					<!-- Outros itens do menu conforme necessário -->
+				</p:menu>
+
+				<div class="medium-10 end columns">
+					<div class="box-white">
+						<h2 class="ttl-sec mb5" style="font-weight: bold;">SERVIÇO
+							DESEJADO:</h2>
+						<div class="box-valor-btn" style="display: flex; gap: 5px;">
+							<p:commandLink value="PARCELAS EM ABERTO" id="parcelasEmAberto"
+								action="#{saldoEmissaoBoletosController.selecionarTodasParcelas}"
+								styleClass="btn-red" oncomplete="resetValoresTotais();"
+								process="@form" update="@form" />
+
+							<p:commandLink value="IMPRESSÃO DO CARNÊ DIGITAL"
+								id="impressaoCarneDigital"
+								action="#{saldoEmissaoBoletosController.selecionarTodasParcelas}"
+								styleClass="btn-red" oncomplete="resetValoresTotais();"
+								process="@form" update="@form" />
+
+						</div>
+						<p class="quantidadeParcelas">Nenhuma parcela selecionada</p>
+						<f:subview
+							rendered="#{saldoEmissaoBoletosController.temParcelaEmAtraso}">
+							<p>*Parcela vencida sem confirmação de pagamento. Será
+								incluída na antecipação de parcelas futuras. Qualquer
+								divergência de informação, contate a Equipe de Relacionamento.</p>
+						</f:subview>
+						<div class="row mt30">
+							<div class="medium-15 large-15 columns">
+								<div class="box-valor-btn">
+									<p:commandLink value="QUITAÇÃO DO CONTRATO" id="quitacao"
+										action="#{saldoEmissaoBoletosController.selecionarTodasParcelas}"
+										styleClass="btn-red" style="float: right"
+										oncomplete="resetValoresTotais();" process="@form"
+										update="@form" />
+								</div>
+							</div>
+						</div>
+						<div class="scrollingTable">
+							<div class="scrollingBody">
+								<table width="100%" style="padding-right: 12px; display: block;">
+									<colgroup>
+										<f:subview
+											rendered="#{not saldoEmissaoBoletosController.temParcelaEmAtraso}">
+											<col width="10%" />
+											<col width="25%" />
+											<col width="25%" />
+											<col width="25%" />
+											<col width="15%" />
+										</f:subview>
+										<f:subview
+											rendered="#{saldoEmissaoBoletosController.temParcelaEmAtraso}">
+											<col width="6%" />
+											<col width="20%" />
+											<col width="20%" />
+											<col width="13%" />
+											<col width="13%" />
+											<col width="13%" />
+											<col width="15%" />
+										</f:subview>
+									</colgroup>
+									<thead>
+										<tr>
+											<th style="top: 0; position: sticky;">Nº</th>
+											<th style="top: 0; position: sticky;">VENCIMENTO DA
+												PARCELA</th>
+											<th style="top: 0; position: sticky;">VALOR DA PARCELA</th>
+											<f:subview
+												rendered="#{saldoEmissaoBoletosController.temParcelaEmAtraso}">
+												<th style="top: 0; position: sticky;">VALOR DA MORA</th>
+												<th style="top: 0; position: sticky;">VALOR DA MULTA</th>
+											</f:subview>
+											<th style="top: 0; position: sticky;">VALOR DE
+												ABATIMENTO</th>
+											<th style="top: 0; position: sticky; z-index: 1">SELECIONAR</th>
+										</tr>
+									</thead>
+									<tbody>
+										<ui:repeat var="parcela"
+											value="#{saldoEmissaoBoletosController.parcelas}"
+											varStatus="status">
+											<tr>
+												<td>#{parcela.numero}<h:outputText value="*"
+														rendered="#{parcela.emAtraso}" />
+												</td>
+												<td><h:outputText value="#{parcela.dataVencimento}">
+														<f:convertDateTime pattern="dd/MM/yyyy" />
+													</h:outputText></td>
+												<td><h:outputText value="#{parcela.valor}">
+														<f:convertNumber maxFractionDigits="2"
+															minFractionDigits="2" type="currency" currencySymbol="R$"
+															locale="pt_BR" />
+													</h:outputText></td>
+												<f:subview
+													rendered="#{saldoEmissaoBoletosController.temParcelaEmAtraso}">
+													<td><h:outputText value="#{parcela.valorMora}">
+															<f:convertNumber maxFractionDigits="2"
+																minFractionDigits="2" type="currency"
+																currencySymbol="R$" locale="pt_BR" />
+														</h:outputText></td>
+													<td><h:outputText value="#{parcela.valorMulta}">
+															<f:convertNumber maxFractionDigits="2"
+																minFractionDigits="2" type="currency"
+																currencySymbol="R$" locale="pt_BR" />
+														</h:outputText></td>
+												</f:subview>
+												<td><h:outputText value="#{parcela.valorAbatimento}">
+														<f:convertNumber maxFractionDigits="2"
+															minFractionDigits="2" type="currency" currencySymbol="R$"
+															locale="pt_BR" />
+													</h:outputText></td>
+
+
+
+												<td class="custom-radio-check custom-radio-check-table">
+
+													<div class="checkbox block">
+														<p:selectBooleanCheckbox id="anteciparParcela"
+															value="#{parcela.antecipar}"
+															disabled="#{parcela.emAtraso}"
+															itemDisabled="#{parcela.emAtraso}">
+															<p:ajax event="click"
+																listener="#{saldoEmissaoBoletosController.calcular(parcela)}"
+																oncomplete="resetValoresTotais()" update="@form" />
+														</p:selectBooleanCheckbox>
+
+													</div>
+												</td>
+											</tr>
+										</ui:repeat>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<!-- encerra aqui whitebox -->
+				</div>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>

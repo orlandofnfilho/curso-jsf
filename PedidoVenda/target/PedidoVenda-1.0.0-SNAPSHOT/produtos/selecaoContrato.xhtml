@@ -1,0 +1,19 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+    <h:panelGroup id="selecaoContrato" styleClass="selecao-contrato">
+        <p:outputLabel value="Seleção de Contrato" style="font-weight:bold;"/>
+        <p:selectOneMenu value="#{saldoEmissaoBoletosController.contratoSelecionado}" style="width:100%;">
+            <f:selectItem itemLabel="Selecione um contrato" itemValue="" noSelectionOption="true"/>
+            <f:selectItems value="#{saldoEmissaoBoletosController.listaContratos}"
+                           var="contrato"
+                           itemValue="#{contrato.id}"
+                           itemLabel="#{contrato.descricao}"/>
+            <p:ajax listener="#{saldoEmissaoBoletosController.onContratoChange}"
+                    update="outrosElementosAAtualizar" />
+        </p:selectOneMenu>
+    </h:panelGroup>
+</ui:composition>

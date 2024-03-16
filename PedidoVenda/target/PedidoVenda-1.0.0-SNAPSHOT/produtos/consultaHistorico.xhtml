@@ -1,0 +1,35 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+
+
+
+	<ui:define name="titulo">Consulta Historico do Veiculo</ui:define>
+
+	<ui:define name="corpo">
+		<h:form id="consultaHistoricoForm">
+			<h1>Historico do Veiculo</h1>
+
+			<p:messages autoUpdate="true" closable="true" />
+
+			<h:panelGroup styleClass="panelField">
+				<p:outputLabel value="Chassi" />
+				<br />
+				<p:inputText value="#{consultaHistoricoController.chassi}"
+					id="chassi" maxlength="17" size="20" />
+			</h:panelGroup>
+
+
+			<h:panelGroup styleClass="panelButton">
+				<h:outputLabel value=" " />
+				<br />
+				<p:commandButton value="Pesquisar" ajax="false" update="@all"
+					action="#{consultaHistoricoController.pesquisarEV01()}" />
+			</h:panelGroup>
+		</h:form>
+	</ui:define>
+</ui:composition>
