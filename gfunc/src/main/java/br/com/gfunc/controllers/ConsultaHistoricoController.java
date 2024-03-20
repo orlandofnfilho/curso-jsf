@@ -40,7 +40,7 @@ public class ConsultaHistoricoController {
 
 	public void pesquisarEV02(Long numApontamento) {
 		System.out.println("APONTAMENTO: " + numApontamento);
-		view = "detalheNovo";
+		view = "detalheNovo1";
 	}
 
 	public List<Apontamento> popularApontamentos() {
