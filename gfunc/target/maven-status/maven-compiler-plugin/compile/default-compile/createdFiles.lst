@@ -1,0 +1,13 @@
+br\com\gfunc\controllers\HomeController.class
+br\com\gfunc\util\cdi\ViewScopedContext.class
+br\com\gfunc\util\jpa\TransactionInterceptor.class
+br\com\gfunc\util\jsf\FacesProducer.class
+br\com\gfunc\util\jpa\EntityManagerProducer.class
+br\com\gfunc\util\cdi\ViewContextExtension.class
+br\com\gfunc\util\jpa\Transactional.class
+br\com\gfunc\util\jsf\FacesUtil.class
+br\com\gfunc\util\jsf\JsfExceptionHandler.class
+br\com\gfunc\util\jsf\JsfExceptionHandlerFactory.class
+br\com\gfunc\util\AppContextListener.class
+br\com\gfunc\util\cdi\CDIServiceLocator.class
+br\com\gfunc\services\exception\NegocioException.class

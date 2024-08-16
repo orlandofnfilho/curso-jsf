@@ -11,6 +11,8 @@ public class HomeController implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
+	private String usuario = "Admin";
+	
 	public HomeController() {
 		
 	}
@@ -19,5 +21,15 @@ public class HomeController implements Serializable{
 		System.out.println("Chegou aqui!!");
 		throw new Exception("Exception message");
 	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+	
+	
 
 }

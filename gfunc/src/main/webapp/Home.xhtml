@@ -1,21 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
-<h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</h:head>
-<h:body>
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
 
-	<h:form id="frm" prependId="false">
+	<ui:define name="corpo">
+		<h:form id="frm" prependId="false">
 	<p:messages id="messages" autoUpdate="true" closable="true" />
     		
 
 		<h1>Hello World!</h1>
+		<p:button value="#{homeController.usuario}" />
 		<h:commandLink  id="link-testador" action="#{homeController.testador}" value="TESTAR"/>
 		
 	</h:form>
+		
+	</ui:define>
 
-</h:body>
-</html>
+</ui:composition>
